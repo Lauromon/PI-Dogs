@@ -7,46 +7,39 @@ module.exports = (sequelize) => {
     id: {
       type: DataTypes.UUID,
       defaultValue: DataTypes.UUIDV4,
-      primaryKey: true
+      primaryKey: true,
+      allowNull: false
     },
+
     name: {
       type: DataTypes.STRING,
       allowNull: false,
       unique: true
     },
-    lifeSpan: {
+
+    life_span: {
+      type: DataTypes.STRING,
+    },
+
+    weight:{
       type: DataTypes.STRING,
       allowNull:false,
-      field: 'life_span'
     },
-    weight:{
-      type: DataTypes.INTEGER,
-      allowNull:false,
-      validate: {
-        isInt: {
-          msg: "Must be an integer number"
-        }
-      }
-    },
+
     height:{
-      type: DataTypes.INTEGER,
+      type: DataTypes.STRING,
       allowNull:false,
-      validate: {
-        isInt: {
-          msg: "Must be an integer number"
-        }
-      }
     },
+
     image:{
       type: DataTypes.STRING,
-      allowNull: false,
       unique: true
     },
+
     createdAt: {
       type: DataTypes.DATEONLY,
       field: 'created_at',
-      allowNull: false,
-      defaultValue: DataTypes.NOW,
+      defaultValue: DataTypes.NOW
     }
 
   },{
