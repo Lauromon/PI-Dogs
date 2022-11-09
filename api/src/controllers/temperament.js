@@ -1,16 +1,17 @@
-const { getDbTemperaments, getApiTemperaments } = require('../services/all.services');
-const { Router } = require('express');
-const router = Router();
+const { getApiTemperaments } = require('../services/dog.services');
+const {Temperament} = require('../db')
 
 
-router.get('/temperaments', async(req, res) => {
-    const temperaments = await getDbTemperaments();
-    if(temperaments.length === 0){
-       await getApiTemperaments();
-       return await getDbTemperaments();
+const getTemperaments = async(req, res) => {
+    const count = await Temperament.count();
+    if(count === 0){
+        await getApiTemperaments();
+        const t = await Temperament.findAll();
+        return res.status(200).json(t);
     }else{
-        return temperaments;
+        const t = await Temperament.findAll();
+        return res.status(200).json(t);
     }
-});
+};
 
-module.exports = router;
+module.exports = {getTemperaments};

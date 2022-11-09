@@ -43,7 +43,6 @@ module.exports = (sequelize) => {
     }
 
   },{
-    tableName: 'breeds',
     timestamps: false,
 });
 };

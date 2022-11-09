@@ -1,8 +1,8 @@
 const { Router } = require('express');
 // Importar todos los routers;
 // Ejemplo: const authRouter = require('./auth.js');
-const dogsRouter = require('../controllers/dogs.js')
-const temperamentRouter = require('../controllers/temperament.js');
+const dogsRouter = require('./dog')
+const temperamentRouter = require('./temperament');
 const { getApiTemperaments } = require('../services/dog.services.js');
 
 const router = Router();
@@ -13,7 +13,8 @@ const router = Router();
 router.use('/dogs', dogsRouter)
 router.use('/temperaments', temperamentRouter)
 router.get('/', async(req,res)=>{
-    await getApiTemperaments()
+  await getApiTemperaments()
+  res.status(200).send("Welcome")
 })
 router.all('*', (req, res) => {
     res.status(404).send('<h1>404! Page not found</h1>');
