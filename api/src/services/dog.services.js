@@ -58,7 +58,6 @@ const getApiTemperaments = async () => {
         .map((el) => el.temperament?.split(", "))
         .flat();
     const temperament = [...new Set(temperamentList)];
-
     await temperament.forEach(async element => {
         if (element) {
             Temperament.findOrCreate({

@@ -103,24 +103,24 @@ const updateDbDog = async (req, res, next) => {
 
 const deleteDbDog = async (req, res, next) => {
     const { id, name } = req.body;
-    try {
-        if (!id || !name) {
-            return res.status(400).send('Faltan parametros necesarios')
-        }
-        const destroyed = await Breed.findByPk(id);
-        if (destroyed === null) {
-            return res.status(400).send('El id no pertenece a un perrito de bien')
-        }
-        if (destroyed) {
-            await Breed.destroy(
-                {
-                    where: { id: id }
-                });
-            return res.status(200).send('El perrito fue a la perrera :(')
-        }
-    } catch (error) {
-        next(error.message)
+try{
+    if (!id || !name) {
+        return res.status(400).send('Faltan parametros necesarios')
     }
+    const destroyed = await Breed.findByPk(id);
+    if (destroyed === null) {
+        return res.status(400).send('El id no pertenece a un perrito de bien')
+    }
+    if (destroyed) {
+        await Breed.destroy(
+            {
+                where: { id: id }
+            });
+        return res.status(200).send('El perrito fue a la perrera :(')
+    }
+}catch(error){
+    next(error.message)
+}
 }
 
 module.exports = { getDogs, getDogID, createDog, updateDbDog, deleteDbDog };
