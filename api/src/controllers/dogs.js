@@ -1,5 +1,5 @@
 //Importo mis funciones desde services
-const { getAllDogs, getDbDogs, /* getAddTemperaments */ } = require('../services/dog.services');
+const { getAllDogs } = require('../services/dog.services');
 const { Breed, Temperament } = require('../db');
 
 const getDogs = async (req, res, next) => {
@@ -116,7 +116,7 @@ try{
             {
                 where: { id: id }
             });
-        return res.status(200).send('El perrito fue a la perrera :(')
+        return res.status(200).send("El perrito fue a la perrera :'(")
     }
 }catch(error){
     next(error.message)

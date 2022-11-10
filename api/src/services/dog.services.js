@@ -38,7 +38,7 @@ const getApiDog = async () => {
             weight: el.weight,
             height: el.height,
             image: el.image,
-            temperament: el.Temperaments.map((e) => e.name).join(", "),
+            temperament: el.Temperaments.map((e) => e.name)/* .join(", ") */,
             life_span: el.life_span
           };
         });
