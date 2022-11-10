@@ -81,4 +81,46 @@ const createDog = async (req, res, next) => {
     }
 };
 
-module.exports = { getDogs, getDogID, createDog };
+const updateDbDog = async (req, res, next) => {
+    const { attribute } = req.params;
+    const { value, id } = req.query;
+    try {
+        if (!id || !value || !attribute) {
+            return res.status(400).send('Necesito el id para cambiarlo')
+        } else {
+            await Breed.update({
+                [attribute]: value
+            }, {
+                where: { id: id }
+            }
+            );
+            return res.status(200).send('Perro actualizado')
+        }
+    } catch (error) {
+        next(error.message)
+    }
+}
+
+const deleteDbDog = async (req, res, next) => {
+    const { id, name } = req.body;
+    try {
+        if (!id || !name) {
+            return res.status(400).send('Faltan parametros necesarios')
+        }
+        const destroyed = await Breed.findByPk(id);
+        if (destroyed === null) {
+            return res.status(400).send('El id no pertenece a un perrito de bien')
+        }
+        if (destroyed) {
+            await Breed.destroy(
+                {
+                    where: { id: id }
+                });
+            return res.status(200).send('El perrito fue a la perrera :(')
+        }
+    } catch (error) {
+        next(error.message)
+    }
+}
+
+module.exports = { getDogs, getDogID, createDog, updateDbDog, deleteDbDog };

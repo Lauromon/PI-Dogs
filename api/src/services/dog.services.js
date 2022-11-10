@@ -31,7 +31,6 @@ const getApiDog = async () => {
             },
           },
         });
-        console.log(perros,"holi")
         return perros.map((el) => {
           return {
             name: el.name,
