@@ -53,7 +53,7 @@ const getAllDogs = async () => {
 }
 
 const getApiTemperaments = async () => {
-    const apiTemperaments = await axios.get(DOG_API);
+    const apiTemperaments = await getApiDog();
     const temperamentList = apiTemperaments.data
         .map((el) => el.temperament?.split(", "))
         .flat();

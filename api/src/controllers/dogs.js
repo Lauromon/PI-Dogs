@@ -52,8 +52,7 @@ const getDogID = async (req, res, next) => {
 const createDog = async (req, res, next) => {
     const { name, temperament, weight, height, image, life_span } = req.body;
     try {
-        const newDog = await Breed.create({
-            //id,
+        const newDog = await Breed.create({    
             name,
             weight,
             height,
