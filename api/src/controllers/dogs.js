@@ -1,6 +1,7 @@
 //Importo mis funciones desde services
-const { getAllDogs } = require('../services/dog.services');
+const { getAllDogs, getRandomImg } = require('../services/dog.services');
 const { Breed, Temperament } = require('../db');
+const { default: axios } = require('axios');
 
 const getDogs = async (req, res, next) => {
     const { name } = req.query;
@@ -43,16 +44,20 @@ const getDogID = async (req, res, next) => {
         const dogId = dogsTotal.filter((el) => el.id.toString() == id.toString());
         dogId.length
             ? res.status(200).json(dogId)
-            : res.status(400).send("No se encontro el perro")
+            : res.status(400).send("ERROR: Breed, not found :(")
     } catch (error) {
         next(error.message);
     }
 };
 
 const createDog = async (req, res, next) => {
-    const { name, temperament, weight, height, image, life_span } = req.body;
+    const { name, temperament, weight, height, life_span } = req.body;
+    var { image } = req.body;
     try {
-        const newDog = await Breed.create({    
+        if(!image){
+            image = await getRandomImg();
+        }
+        const newDog = await Breed.create({
             name,
             weight,
             height,
@@ -62,38 +67,59 @@ const createDog = async (req, res, next) => {
         await temperament.forEach(async element => {
             if (element) {
                 Temperament.findOrCreate({
-                    where: { name: element.name }
+                    where: { name: element }
                 });
             }
         });
         await temperament.forEach(async element => {
             if (element) {
                 const temperamentDb = await Temperament.findAll({
-                    where: { name: element.name }
+                    where: { name: element }
                 });
                 await newDog.addTemperament(temperamentDb);
             }
         });
-        return res.status(200).send('Perrito creado')
+        return res.status(200).send('Breed created!')
     } catch (error) {
         next(error.message)
     }
 };
 
 const updateDbDog = async (req, res, next) => {
-    const { attribute } = req.params;
-    const { value, id } = req.query;
+    const { id } = req.params;
+    const { name, temperament, weight, height, image, life_span } = req.body;
     try {
-        if (!id || !value || !attribute) {
-            return res.status(400).send('Necesito el id para cambiarlo')
-        } else {
-            await Breed.update({
-                [attribute]: value
-            }, {
-                where: { id: id }
-            }
-            );
-            return res.status(200).send('Perro actualizado')
+        const dogId = await Breed.findByPk(id)
+        if (!dogId) return res.status(400).send("ERROR: That id doesn't exists.");
+        const repeatedName = await Breed.findAll({ where: { name: name } });
+        if (repeatedName.length) return res.status(400).send("ERROR: Breed already exists.");
+
+        name && dogId.set({ name: name });
+        weight && dogId.set({ weight: weight });
+        height && dogId.set({ height: height });
+        life_span && dogId.set({ life_span: life_span });
+        image && dogId.set({ image: image });
+       
+        if (temperament.length) {
+            await temperament.forEach(async element => {
+                if (element) {
+                    Temperament.findOrCreate({
+                        where: { name: element }
+                    });
+                }
+            });
+
+            await dogId.setTemperaments([]);
+            await temperament.forEach(async element => {
+                if (element) {
+                    const temperamentDb = await Temperament.findAll({
+                        where: { name: element }
+                    });
+                    await dogId.addTemperament(temperamentDb);
+                }
+            });
+            await dogId.save()
+            return res.status(200).send('Breed updated!')
         }
     } catch (error) {
         next(error.message)
@@ -101,25 +127,23 @@ const updateDbDog = async (req, res, next) => {
 }
 
 const deleteDbDog = async (req, res, next) => {
-    const { id, name } = req.body;
-try{
-    if (!id || !name) {
-        return res.status(400).send('Faltan parametros necesarios')
+    const { id } = req.params;
+    try {
+      
+        const destroyed = await Breed.findByPk(id);
+        if (destroyed === null) {
+            return res.status(400).send('ERROR: That id is not a good boy')
+        }
+        if (destroyed) {
+            await Breed.destroy(
+                {
+                    where: { id: id }
+                });
+            return res.status(200).send("The breed went to the park")
+        }
+    } catch (error) {
+        next(error.message)
     }
-    const destroyed = await Breed.findByPk(id);
-    if (destroyed === null) {
-        return res.status(400).send('El id no pertenece a un perrito de bien')
-    }
-    if (destroyed) {
-        await Breed.destroy(
-            {
-                where: { id: id }
-            });
-        return res.status(200).send("El perrito fue a la perrera :'(")
-    }
-}catch(error){
-    next(error.message)
-}
 }
 
 module.exports = { getDogs, getDogID, createDog, updateDbDog, deleteDbDog };

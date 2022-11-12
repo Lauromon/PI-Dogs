@@ -3,10 +3,10 @@ const { Router } = require('express');
 const router = Router();
 
 router.get('/', getDogs)
-router.put('/:attribute', updateDbDog)
+router.put('/:id', updateDbDog)
+router.delete('/:id', deleteDbDog)
 router.get('/:id', getDogID)
 router.post('/', createDog)
-router.delete('/', deleteDbDog)
 
 
 module.exports = router;
