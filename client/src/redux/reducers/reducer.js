@@ -54,20 +54,10 @@ function rootReducer(state = initialState, action) {
                 dogs: allDogs
             };
         } else {
-            const filterApi = allDogs.filter(e => e.temperaments?.includes(action.payload));
-
-            const filterDb = [];
-            allDogs.forEach(e => {
-                if (typeof e.id === 'string') {
-                    e.temperaments.forEach(t => {
-                        if (t.name === action.payload) filterDb.push(e);
-                    })
-                }
-            });
-
+            const filterApi = allDogs.filter(e => e.temperament?.includes(action.payload));
             return {
                 ...state,
-                dogs: filterApi.concat(filterDb)
+                dogs: filterApi
             };
         }
 
@@ -89,41 +79,48 @@ function rootReducer(state = initialState, action) {
         };
     }
     if (action.type === ORDER_BY) {
-        var sorted;
         if (action.payload === 'asc') {
-            sorted = state.dogs.sort((a, b) => {
-                if (a.name > b.name) return 1;
-                if (a.name < b.name) return -1;
-                return 0;
-            })
+            let orderedName = [...state.dogs].sort((a, b) => a.name.localeCompare(b.name))
+
+            return {
+                ...state,
+                dogs: orderedName
+            };
         }
         if (action.payload === 'desc') {
-            sorted = state.dogs.sort((a, b) => {
-                if (a.name > b.name) return -1;
-                if (a.name < b.name) return 1;
-                return 0;
-            })
+            let dogsToInvert = [...state.dogs].sort((a, b) => a.name.localeCompare(b.name))
+            let reversedName = [...dogsToInvert].reverse()
+
+            return {
+                ...state,
+                dogs: reversedName
+            };
         }
         if (action.payload === "lower") {
-            sorted = state.dogs.sort((a, b) => {
-                if (parseInt(a.weight.split(' - ')[0]) > parseInt(b.weight.split(' - ')[0])) return 1;
-                if (parseInt(a.weight.split(' - ')[0]) < parseInt(b.weight.split(' - ')[0])) return -1;
+            let lowerSort = [...state.dogs].sort((a, b) => {
+                if (parseInt(a.weight?.split(' - ')[0]) > parseInt(b.weight?.split(' - ')[0])) return 1;
+                if (parseInt(a.weight?.split(' - ')[0]) < parseInt(b.weight?.split(' - ')[0])) return -1;
                 return 0;
 
             })
+            return {
+                ...state,
+                dogs: lowerSort
+            };
         }
         if (action.payload === "higher") {
-            sorted = state.dogs.sort((a, b) => {
+            let higherSort = [...state.dogs].sort((a, b) => {
                 if (parseInt(a.weight.split(' - ')[0]) > parseInt(b.weight.split(' - ')[0])) return -1;
                 if (parseInt(a.weight.split(' - ')[0]) < parseInt(b.weight.split(' - ')[0])) return 1;
                 return 0;
 
             })
+            return {
+                ...state,
+                dogs: higherSort
+            };
         }
-        return {
-            ...state,
-            dogs: sorted
-        };
+    
     }
     if (action.type === CREATE_DOG) {
         return {
@@ -132,7 +129,8 @@ function rootReducer(state = initialState, action) {
     }
     if (action.type === DELETE_DOG) {
         return {
-            ...state
+            ...state,
+            details: []
         };
     }
     if (action.type === UPDATE_DOG) {
