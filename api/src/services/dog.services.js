@@ -38,7 +38,7 @@ const getDbDogs = async () => {
       weight: el.weight,
       height: el.height,
       image: el.image,
-      temperament: el.Temperaments.map((e) => e.name)/* .join(", ") */,
+      temperament: el.Temperaments.map((e) => e.name).join(", "),
       life_span: el.life_span
     };
   });
@@ -54,7 +54,7 @@ const getAllDogs = async () => {
 
 const getApiTemperaments = async () => {
   const apiTemperaments = await getApiDog();
-  const temperamentList = apiTemperaments.data
+  const temperamentList = apiTemperaments
     .map((el) => el.temperament?.split(", "))
     .flat();
   const temperament = [...new Set(temperamentList)];

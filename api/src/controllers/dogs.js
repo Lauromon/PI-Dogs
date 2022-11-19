@@ -10,9 +10,10 @@ const getDogs = async (req, res, next) => {
         if (!name) {
             const allDogs = dogs.map((e) => {
                 return {
+                    id: e.id,
                     image: e.image,
                     name: e.name,
-                    temperament: e.temperment,
+                    temperament: e.temperament,
                     weight: e.weight
                 }
             });
@@ -21,6 +22,7 @@ const getDogs = async (req, res, next) => {
             const dogNamed = dogs.reduce((dog, e) => {
                 if (e.name.toLowerCase().includes(name.toLowerCase())) {
                     dog.push({
+                        id: e.id,
                         image: e.image,
                         name: e.name,
                         temperament: e.temperament,
@@ -42,8 +44,9 @@ const getDogID = async (req, res, next) => {
     try {
         const dogsTotal = await getAllDogs();
         const dogId = dogsTotal.filter((el) => el.id.toString() == id.toString());
-        dogId.length
-            ? res.status(200).json(dogId)
+        const dogObj = dogId[0]
+        Object.keys(dogObj).length
+            ? res.status(200).json(dogObj)
             : res.status(400).send("ERROR: Breed, not found :(")
     } catch (error) {
         next(error.message);
@@ -118,9 +121,9 @@ const updateDbDog = async (req, res, next) => {
                     await dogId.addTemperament(temperamentDb);
                 }
             });
-            await dogId.save()
-            return res.status(200).send('Breed updated!')
         }
+        await dogId.save()
+        return res.status(200).send('Breed updated!')
     } catch (error) {
         next(error.message)
     }
@@ -132,14 +135,12 @@ const deleteDbDog = async (req, res, next) => {
       
         const destroyed = await Breed.findByPk(id);
         if (destroyed === null) {
-            return res.status(400).send('ERROR: That id is not a good boy')
+            res.status(400).send('ERROR: That id is not a good boy')
         }
         if (destroyed) {
-            await Breed.destroy(
-                {
-                    where: { id: id }
-                });
-            return res.status(200).send("The breed went to the park")
+            await destroyed.destroy();
+                
+            res.status(200).send("The breed went to the park")
         }
     } catch (error) {
         next(error.message)

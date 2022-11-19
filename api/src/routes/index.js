@@ -12,12 +12,9 @@ const router = Router();
 
 router.use('/dogs', dogsRouter)
 router.use('/temperaments', temperamentRouter)
-router.get('/', async(req,res)=>{
-  await getApiTemperaments()
-  res.status(200).send("Welcome")
-})
-router.all('*', (req, res) => {
+
+/* router.all('*', (req, res) => {
     res.status(404).send('<h1>404! Page not found</h1>');
-  })
+  }) */
 
 module.exports = router;
