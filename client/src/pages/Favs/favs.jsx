@@ -6,6 +6,7 @@ import { removeFavorite } from "../../redux/actions/actions";
 import Random from "../../components/random/random";
 import GitHub from '../../assets/github.png'
 import LinkedIn from '../../assets/linkedin.png'
+import './favs.css'
 
 const Favs = () => {
   const dispatch = useDispatch()
@@ -14,47 +15,47 @@ const Favs = () => {
     dispatch(removeFavorite(id))
   }
   return (
-    <div>
-      <nav>
-        <ul className="list">
+    <div className="favContainer">
+      <nav className="favNav">
+        <ul className="favLinks">
           <li>
-            <Link exact to="/create" >Create Dog</Link>
+            <Link to="/create" >Create Dog</Link>
           </li>
           <li>
             <Link to="/home" >Home</Link>
           </li>
         </ul>
-        <div>
-            <Random />
-          </div>
+        <div className="rnd">
+          <Random />
+        </div>
+        <h1>Love Wall</h1>
       </nav>
-      <div>
-        <h2>Love Wall</h2>
-        <ul>
-          {favorites.length ? favorites.map(dog =>
-            <div>
-              <DogCard
-                id={dog.id}
-                name={dog.name}
-                image={dog.image}
-                weight={dog.weight}
-                temperaments={dog.temperament}
-              />
-              <button onClick={() => removeDogFavorite(dog.id)}>x</button>
-              <br />
-            </div>)
-            :
-            <div>
-              <p> Hey, here will be the puppies you like the most</p>
-            </div>
-          }
-        </ul>
-      </div>
-      <div className="aboutFooter">
-        <div className="credits">
+      
+        <div className="favDogContainer">
+            {favorites.length ? favorites.map(dog =>
+              <div className="favDogs">
+                <DogCard
+                  id={dog.id}
+                  name={dog.name}
+                  image={dog.image}
+                  weight={dog.weight}
+                  temperaments={dog.temperament}
+                />
+                <button className="removeBtn" onClick={() => removeDogFavorite(dog.id)}>X</button>
+                <br />
+              </div>)
+              :
+              <div className="favNoDog">
+                <h2> Hey, here will be the puppies you like the most</h2>
+              </div>
+            }
+        </div>
+    
+      <div className="favFooter">
+        <div className="favCredits">
           <ul>
             <li>
-              <a href="/about">Lautaro Orbes, 2022</a>
+              <a className="lau" href="/about">Lautaro Orbes, 2022</a>
             </li>
             <li>
               <ul>

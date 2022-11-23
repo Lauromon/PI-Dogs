@@ -24,16 +24,18 @@ export const validate = (input) => {
     
     if (input.minWeight && input.maxWeight && parseInt(input.minWeight) >= parseInt(input.maxWeight)) err.maxWeight = 'Maximum weight must be bigger than minimum.'
   
+    if (!input.minLifeSpan) err.minLifeSpan = "Minimum life span required!";
     if (input.minLifeSpan && input.minLifeSpan < 3) err.minLifeSpan = "Minimum life span must be bigger than 3 years.";
     else if (input.minLifeSpan && isNaN(input.minLifeSpan)) err.minLifeSpan = "Minimum life span must be a number.";
   
+    if (!input.maxLifeSpan) err.maxLifeSpan = "Maximum life span required!";
     if (input.maxLifeSpan && input.maxLifeSpan > 30) err.maxLifeSpan = "Maximum life span must be smaller than 30 years.";
     else if (input.maxLifeSpan && isNaN(input.maxLifeSpan)) err.maxLifeSpan = "Maximum life span must be a number.";
   
-    if (input.minLifeSpan && ! input.maxLifeSpan) err.minLifeSpan = 'Both life spans must be provided!';
-    if (! input.minLifeSpan && input.maxLifeSpan) err.maxLifeSpan = 'Both life spans must be provided!';
+    if (input.minLifeSpan && !input.maxLifeSpan) err.minLifeSpan = 'Both life spans must be provided!';
+    if (!input.minLifeSpan && input.maxLifeSpan) err.maxLifeSpan = 'Both life spans must be provided!';
     
-    if (input.minLifeSpan && input.maxLifeSpan && parseInt(input.minLifeSpan) >= parseInt(input.maxLifeSpan)) err.life_span_max = 'Maximum life span must be bigger than minimum.'
+    if (input.minLifeSpan && input.maxLifeSpan && parseInt(input.minLifeSpan) >= parseInt(input.maxLifeSpan)) err.maxLifeSpan = 'Maximum life span must be bigger than minimum.'
   
     return err;
 };

@@ -1,0 +1,30 @@
+.paginationContainer{
+    position: relative;
+   
+}
+
+.paginationContainer button{
+    margin: 5px;
+    padding: 7px;
+    color: #ffff;
+    border: none;
+    transition: all ease-in-out .2s;
+    border-radius: 17px;
+    background: linear-gradient(145deg, #f8bcad, #d19e92);
+    box-shadow: 5px 5px 10px #d3a093,
+        -5px -5px 10px #fdc0b1;
+}
+
+.paginationContainer button:hover{
+    border-radius: 17px;
+    background: linear-gradient(145deg, #d19e92, #f8bcad);
+    box-shadow: 5px 5px 10px #d3a093,
+        -5px -5px 10px #fdc0b1;;
+}
+ 
+.paginationContainer button:active{
+    border-radius: 17px;
+    background: #E8B0A2;
+    box-shadow: inset 10px 10px 20px #d3a093,
+        inset -10px -10px 20px #fdc0b1;
+}

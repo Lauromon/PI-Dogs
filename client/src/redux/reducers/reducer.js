@@ -79,6 +79,11 @@ function rootReducer(state = initialState, action) {
         };
     }
     if (action.type === ORDER_BY) {
+        if (!Array.isArray(state.dogs) && state.dogs.hasOwnProperty("msg")){
+            return {
+                ...state
+            }  
+        } 
         if (action.payload === 'asc') {
             let orderedName = [...state.dogs].sort((a, b) => a.name.localeCompare(b.name))
 

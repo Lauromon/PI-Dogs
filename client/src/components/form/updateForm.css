@@ -1,0 +1,182 @@
+.updaterBackground {
+    background: #c5e8dcd9;
+    background-position: center;
+    background-size: cover;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.updateMenu {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: -16px;
+    width: 35%;
+    height: 750px;
+    padding-top: 5px;
+    align-items: center;
+    /* justify-content: center; */
+    border-radius: 31px;
+    background: #C5E8DC;
+    box-shadow: 18px 18px 29px #a2beb4, -18px -18px 29px #e8ffff;
+}
+
+.closeUpdater {
+    position: absolute;
+    right: 34%;
+    top: 11%;
+    border: none;
+    margin: 6px 6px 0 0;
+    font-family: 'Rubik', sans-serif;
+    font-weight: 700;
+    width: 35px;
+    height: 35px;
+    color: #ffff;
+    border-radius: 17px;
+    background: linear-gradient(145deg, #f8bcad, #d19e92);
+    box-shadow: 10px 10px 20px #a2beb4,
+        -10px -10px 20px #e8ffff;
+    }
+    
+    .closeUpdater:hover{
+        border-radius: 17px;
+        background: #E8B0A2;
+        box-shadow: inset 10px 10px 20px #d3a093,
+            inset -10px -10px 20px #fdc0b1;
+    }
+
+.updaterTitle {
+    color: #97ADE8;
+    margin: 40px 0px 20px 0px;
+    text-decoration: underline;
+    text-decoration-color: #E8B0A2;
+}
+
+.upDivForm {
+    text-align: center;
+    margin: 20px 0px 20px 0px;
+}
+
+.upDivForm input {
+    max-width: 177px;
+    outline: none;
+    border: none;
+    padding: 5px 0px;
+    border-radius: 31px;
+    background: #C5E8DC;
+    box-shadow: inset 10px 10px 16px #a2beb4,
+        inset -10px -10px 16px #e8ffff;
+}
+
+.upDivForm input::-webkit-input-placeholder {
+    text-align: center;
+    color: #5a688d;
+}
+
+.danger {
+    color: red;
+}
+
+.upDivForm p {
+    position: absolute;
+    margin: 0px 0px 0px 0px;
+    font-size: smaller;
+}
+
+.upTempWrap {
+    max-width: 177px;
+    position: relative;
+    margin: 20px 0px 20px 0px;
+}
+
+.upTempWrap select {
+    color: #5a688d;
+    text-align-last: center;
+    outline: none;
+    border: none;
+    padding: 5px 0px;
+    display: inline-block;
+    width: 100%;
+    border-radius: 31px;
+    background: #C5E8DC;
+    box-shadow: inset 10px 10px 16px #a2beb4,
+        inset -10px -10px 16px #e8ffff;
+}
+
+.upTempWrap select::-webkit-scrollbar {
+    width: 0.5em;
+}
+
+.upTempWrap select::-webkit-scrollbar-track {
+    background: #f1efef;
+}
+
+.upTempWrap select::-webkit-scrollbar-thumb {
+    background: #97ADE8;
+}
+
+
+.upInputWrap {
+    max-width: 177px;
+    position: relative;
+}
+
+.upInputWrap input {
+    padding: 7px 0px;
+    color: #ffff;
+    border: none;
+    display: inline-block;
+    width: 100%;
+    border-radius: 31px;
+    background: #97ADE8;
+    box-shadow: 10px 10px 16px #a2beb4,
+        -10px -10px 16px #e8ffff;
+}
+
+.upInputWrap input:hover {
+    border-radius: 17px;
+    background: linear-gradient(145deg, #889cd1, #a2b9f8);
+    box-shadow: 10px 10px 16px #a2beb4,
+        -10px -10px 16px #e8ffff;
+    ;
+}
+
+.upInputWrap input:active {
+    border-radius: 17px;
+    background: #97ADE8;
+    box-shadow: inset 10px 10px 16px #a2beb4,
+        inset -10px -10px 16px #e8ffff;
+}
+
+.selectedTemps {
+    bottom: 14.5%;
+    color: #5a688d;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    max-width: 250px;
+    position: absolute;
+    right: 38.5%;
+    border-radius: 14px;
+    background: #C5E8DC;
+    box-shadow: inset 10px 10px 16px #a2beb4, inset -10px -10px 16px #e8ffff;
+}
+
+.selectedTemps .selTempItem {
+    display: inline-flex;
+    width: 50%;
+}
+
+.selectedTemps .deleteSelectedTemp {
+    border: none;
+    background: none;
+    color: #E8B0A2;
+    font-family: 'Fira Sans', sans-serif;
+    font-weight: 700;
+    position: relative;
+    bottom: 2px;
+}

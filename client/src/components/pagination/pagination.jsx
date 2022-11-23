@@ -2,12 +2,12 @@ import './pagination.css';
 
 export default function Pagination({ nextpage, prevPage }) {
     return (
-        <div>
+        <div className='paginationContainer'>
             <button onClick={prevPage}  >
-                Regresar a tanda anterior
+                Prev.
             </button>
             <button onClick={nextpage} >
-                Ir a la siguiente tanda
+                Next
             </button>
         </div >)
 }

@@ -31,10 +31,12 @@ const getDogs = async (req, res, next) => {
                 }
                 return dog;
             }, []);
-            return res.status(200).json(dogNamed);
-        };
+            dogNamed.length ? res.status(200).json(dogNamed) :
+            res.status(400).send({msg: "Breed not found :("})
+            }
+        
     } catch (error) {
-        next(error.message);
+        res.status(400).send({msg: "Breed not found :("})
     }
 };
 
@@ -43,11 +45,10 @@ const getDogID = async (req, res, next) => {
     const { id } = req.params;
     try {
         const dogsTotal = await getAllDogs();
-        const dogId = dogsTotal.filter((el) => el.id.toString() == id.toString());
-        const dogObj = dogId[0]
-        Object.keys(dogObj).length
-            ? res.status(200).json(dogObj)
-            : res.status(400).send("ERROR: Breed, not found :(")
+        if (id) {
+            const idDog = await dogsTotal.find(dog => dog.id == id);
+            idDog ? res.status(200).send(idDog) : res.status(400).json("Breed not found :(");
+        }
     } catch (error) {
         next(error.message);
     }
@@ -82,7 +83,7 @@ const createDog = async (req, res, next) => {
                 await newDog.addTemperament(temperamentDb);
             }
         });
-        return res.status(200).send('Breed created!')
+        return res.status(201).send('Breed created!')
     } catch (error) {
         next(error.message)
     }

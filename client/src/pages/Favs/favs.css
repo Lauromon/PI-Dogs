@@ -1,0 +1,133 @@
+.favContainer {
+    background: #C5E8DC
+        /* linear-gradient(360deg, #97ADE8 0%, #e8b0a2 100%); */
+        /* url('../../assets/mosaic.jpg') */
+    ;
+    background-position: center;
+    background-size: contain;
+    background-repeat: repeat;
+    width: 100%;
+    height: auto;
+    min-height: 100%;
+    position: absolute;
+    z-index: -1;
+}
+
+.favNav {
+    display: flex;
+    align-items: center;
+    position: absolute;
+    background-color: #E8B0A2;
+    width: 100%;
+    height: 200px;
+    text-decoration: none;
+}
+
+.favLinks li {
+    display: inline-block;
+    margin-left: 30px;
+}
+
+.favLinks a {
+    font-family: 'Fira Sans', sans-serif;
+    font-weight: bold;
+    padding: 5px 7px 7px 7px;
+    color: white;
+    text-decoration: none;
+    text-align: center;
+    transition: all ease-in-out .2s;
+    border-radius: 17px;
+    background: linear-gradient(145deg, #f8bcad, #d19e92);
+    box-shadow: 10px 10px 20px #d3a093,
+        -10px -10px 20px #fdc0b1;
+}
+
+.favLinks a:hover {
+    border-radius: 17px;
+    background: linear-gradient(145deg, #d19e92, #f8bcad);
+    box-shadow: 10px 10px 20px #d3a093,
+        -10px -10px 20px #fdc0b1;
+    ;
+}
+
+.favLinks a:active {
+    border-radius: 17px;
+    background: #E8B0A2;
+    box-shadow: inset 10px 10px 20px #d3a093,
+        inset -10px -10px 20px #fdc0b1;
+}
+
+.rnd {
+    position: absolute;
+    right: 3%;
+}
+
+
+.favDogContainer {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    width: 96%;
+    gap: 40px;
+    margin: 250px auto 0 auto;
+    justify-content: center;
+}
+
+.favNav h1 {
+    color: #ffff;
+    position: absolute;
+    left: 45.5%;
+    font-size: xx-large;
+    text-decoration-line: underline;
+    text-decoration-color: #97ADE8;
+}
+
+.removeBtn {
+
+    position: absolute;
+    color: #fff;
+    margin: 5px 6px;
+    font-family: 'Rubik', sans-serif;
+    font-weight: 700;
+    width: 35px;
+    height: 35px;
+    border: none;
+    border-radius: 13px;
+    background: linear-gradient(145deg, #fdbfaf, #d3a093);
+}
+
+.removeBtn:hover{
+    border-radius: 13px;
+    background: #E8B0A2;
+    box-shadow: inset 10px 10px 3px #d3a093,
+        inset -10px -10px 3px #fdbfaf;
+}
+
+.favDogs {
+    display: flex;
+}
+
+.favNoDog {
+    margin: 280px 0;
+    color: #97ADE8;
+}
+
+.favFooter {
+    margin-top: 140px;
+    width: 100%;
+    height: 80px;
+    background: #E8B0A2;
+}
+
+.favFooter li {
+    color: white;
+    display: inline-block;
+    margin-left: 30px;
+}
+
+.favFooter .favCredits {
+    text-align: center;
+    position: relative;
+    top: 20px;
+    margin-left: -100px;
+}

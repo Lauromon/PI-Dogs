@@ -1,0 +1,315 @@
+.detail {
+    background: url('../../assets/mosaic.jpg');
+    background-size: contain;
+    width: 100%;
+    height: auto;
+    min-height: 100%;
+    position: absolute;
+    z-index: -1;
+    }
+
+
+.detNav {
+    position: relative;
+    background-color: #E8B0A2;
+    width: 100%;
+    height: 150px;
+    text-decoration: none;
+    display: flex;
+    flex-direction: row;
+}
+
+.detLinks {
+    margin-top: 40px;
+}
+
+.detLinks li {
+    display: inline-block;
+    margin-left: 30px;
+}
+
+.detLinks a {
+    font-family: 'Fira Sans', sans-serif;
+    font-weight: bold;
+    padding: 5px 7px 7px 7px;
+    color: white;
+    text-decoration: none;
+    text-align: center;
+    transition: all ease-in-out .2s;
+    border-radius: 17px;
+    background: linear-gradient(145deg, #f8bcad, #d19e92);
+    box-shadow: 10px 10px 20px #d3a093,
+        -10px -10px 20px #fdc0b1;
+}
+
+.detLinks a:hover {
+    border-radius: 17px;
+    background: linear-gradient(145deg, #d19e92, #f8bcad);
+    box-shadow: 10px 10px 20px #d3a093,
+        -10px -10px 20px #fdc0b1;
+    ;
+}
+
+.detLinks a:active {
+    border-radius: 17px;
+    background: #E8B0A2;
+    box-shadow: inset 10px 10px 20px #d3a093,
+        inset -10px -10px 20px #fdc0b1;
+}
+
+.rightDetNav {
+    position: relative;
+    left: 60%;
+    margin: 55px 0 0 0;
+}
+
+.detailBody {
+
+    top: 200px;
+    display: flex;
+    margin: 60px auto;
+    width: 90%;
+    height: 530px;
+    padding-left: 50px;
+    border-radius: 25px;
+    background-color: #ffffffe2;
+    box-shadow: 30px 30px 1px #97ADE8d5,
+        -30px -30px 1px #C5E8DCd5;
+}
+
+.detailBody img {
+    position: relative;
+    top: 30px;
+    width: auto;
+    object-fit: cover;
+    height: 400px;
+    max-width: 500px;
+    margin: 40px 0px;
+    border-radius: 10px;
+}
+
+.detVisual {
+    display: inline-block;
+    width: 400px;
+}
+
+.detailBody .detDescripcion {
+    display: inline-block;
+    height: 320px;
+    position: relative;
+    top: 20px;
+    margin-left: 140px;
+}
+
+.detText {
+    display: inline-block;
+    position: absolute;
+}
+
+.temp {
+    width: 400px;
+    position: relative;
+    font-size: 1.2em;
+    text-align: left;
+}
+
+.detTemps {
+    display: block;
+    position: relative;
+    margin-top: 80px;
+    left: 0;
+    top: -80px;
+}
+
+.detailBody .detDescripcion .detTitulo {
+    font-family: 'Rubik', sans-serif;
+    font-size: 3em;
+    font-weight: 900;
+    max-width: 500px;
+    color: #97ADE8;
+    text-decoration: underline;
+    text-decoration-color: #e8b0a2;
+}
+
+.detTituloGrande {
+    font-family: 'Rubik', sans-serif;
+    font-size: 2.5em;
+    font-weight: 900;
+    max-width: 500px;
+    color: #97ADE8;
+    text-decoration: underline;
+    text-decoration-color: #e8b0a2;
+}
+
+.detailBody .detDescripcion .detCat {
+    font-family: 'Rubik', sans-serif;
+    font-size: 1.5em;
+    font-weight: 700;
+    color: #97ADE8;
+}
+
+
+.detHolder a {
+    position: relative;
+    height: 60px;
+    width: 60px;
+    bottom: 60vh;
+    left: 39vw;
+
+}
+
+.detHolder img:hover {
+    height: 65px;
+    width: 65px;
+    cursor: pointer;
+}
+
+.detHolder img {
+    position: absolute;
+    object-fit: contain;
+    width: 60px;
+    height: 60px;
+    z-index: 1;
+}
+
+.detDescripcion p {
+    display: inline-block;
+    margin-left: 5px;
+    position: relative;
+    bottom: 1px;
+    font-family: 'Rubik', sans-serif;
+}
+
+.holder {
+    font-size: 1.2em;
+    color: #E8B0A2;
+}
+
+.buttonsWrapper {
+    position: absolute;
+    bottom: 0px;
+}
+
+.updateButton {
+    background: linear-gradient(145deg, #f8bcad, #d19e92);
+    border: none;
+    font-family: 'Rubik', sans-serif;
+    font-weight: 700;
+    padding: 10px 10px;
+    border-radius: 10px;
+    transition: all ease-in-out .2s;
+    color: #ffff;
+    font-size: 1.2em;
+    margin: 5px 5px;
+}
+
+.detLoader{
+    position: absolute;
+    left: 24.4%;
+    bottom: 75px; 
+}
+
+.detLoader img{
+    max-height: 701px;
+}
+
+.det404{
+    bottom: 50%;
+    position: absolute;
+    left: 38.9%;
+    color: #97ADE8;
+}
+
+.deleteButton {
+    background: linear-gradient(145deg, #a2b9f8, #889cd1);
+    border: none;
+    font-family: 'Rubik', sans-serif;
+    font-weight: 700;
+    padding: 10px 15px;
+    border-radius: 10px;
+    transition: all ease-in-out .2s;
+    color: #ffff;
+    font-size: 1.2em;
+    margin-left: 10px;
+}
+
+.deleteButton:hover {
+    background: linear-gradient(145deg, #889cd1, #a2b9f8);
+}
+
+.deleteButton:active {
+    background: #97ADE8;
+    box-shadow: inset 26px 26px 15px #889cd1,
+        inset -26px -26px 15px #a6beff;
+}
+
+.updateButton:hover {
+    background: linear-gradient(145deg, #d19e92, #f8bcad);
+}
+
+.updateButton:active {
+    background: #E8B0A2;
+    box-shadow: inset 26px 26px 15px #d19e92,
+        inset -26px -26px 15px #ffc2b2;
+}
+
+.footerDet .credits {
+    text-align: center;
+    position: relative;
+    top: 20px;
+    margin-left: -100px;
+}
+
+.footerDet {
+    position: absolute;
+    margin-top: 100px;
+    width: 100%;
+    height: 80px;
+    background: #E8B0A2;
+    bottom: 0px;
+}
+
+.footerDet li {
+    color: white;
+    display: inline-block;
+    margin-left: 30px;
+}
+
+.lau {
+    color: white;
+    text-decoration: none;
+    position: relative;
+    bottom: 5px;
+    font-size: large;
+}
+
+.lau:hover {
+    text-decoration: underline;
+}
+
+.credits ul li ul li {
+    position: relative;
+    left: -55px;
+    bottom: 5px;
+    margin-right: -50px;
+}
+
+.loaderDetail {
+    display: block;
+    margin: 50px auto;
+    width: 200px;
+}
+
+.pseudoTitle1 {
+    display: none;
+}
+
+
+.updaterWindow {
+    position: absolute;
+    top: 0px;
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+}
+
