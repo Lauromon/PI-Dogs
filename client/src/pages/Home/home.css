@@ -6,17 +6,14 @@ body {
 }
 
 .home {
-    background: #C5E8DC
-        /* linear-gradient(360deg, #97ADE8 0%, #e8b0a2 100%); */
-        /* url('../../assets/mosaic.jpg') */
-    ;
-    background-position: center;
-    background-size: contain;
+    background: #c5e8dc;
+    background-position: 50%;
     background-repeat: repeat;
-    width: 100%;
-    height: 100%;
-    position: absolute;
+    background-size: contain;
+    height: auto;
     z-index: -1;
+    position: absolute;
+    width: 100%;
 }
 
 .nav {
@@ -191,11 +188,11 @@ body {
 }
 
 .footer {
-    position: absolute;
-    bottom: 0%;
-    width: 100%;
+    background: #e8b0a2;
+    /* bottom: 0; */
     height: 80px;
-    background: #E8B0A2;
+    /* position: absolute; */
+    width: 100%;
 }
 
 .footer li {
@@ -224,17 +221,17 @@ body {
 }
 
 .pagination {
-    position: absolute;
-    display: flex;
-    background: #E8B0A2;
+    align-items: center;
+    background: #e8b0a2;
     border: none;
     border-radius: 20px;
-    width: 200px;
+    display: flex;
     height: 50px;
     justify-content: center;
     left: 44.8%;
-    align-items: center;
     margin-top: 60px;
+    position: relative;
+    width: 200px;
 }
 
 body::-webkit-scrollbar {

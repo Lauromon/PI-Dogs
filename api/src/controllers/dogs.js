@@ -57,11 +57,14 @@ const getDogID = async (req, res, next) => {
 const createDog = async (req, res, next) => {
   const { name, temperament, weight, height, life_span } = req.body;
   var { image } = req.body;
+  
   try {
-    if (!image) {
+
+    if (image == null){
       image = await getRandomImg();
+      console.log(image,"imagen")
     }
-    if (name && weight && height && life_span) {
+    
       const newDog = await Breed.create({
         name,
         weight,
@@ -86,9 +89,8 @@ const createDog = async (req, res, next) => {
       });
 
       return res.status(201).send('Breed created!')
-    } else {
-      res.status(404).send('Name, weight, height and life span required')
-    }
+    
+    
   } catch (error) {
     res.status(404).send(error.message)
   }

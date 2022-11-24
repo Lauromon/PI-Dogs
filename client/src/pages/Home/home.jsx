@@ -69,7 +69,7 @@ const HomePage = () => {
   useEffect(() => {
     !dogs.length && dispatch(getDogs())
     dispatch(getTemperaments())
-  }, [dispatch, dogs.length]);
+  }, [dispatch]);
 
   console.log(dogs, "perris");
   return (
