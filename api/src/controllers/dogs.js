@@ -62,7 +62,7 @@ const createDog = async (req, res, next) => {
 
     if (image == null){
       image = await getRandomImg();
-      console.log(image,"imagen")
+    
     }
     
       const newDog = await Breed.create({
