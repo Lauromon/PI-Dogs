@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { createDog, getTemperaments, } from "../../redux/actions/actions";
+import { createDog, getTemperaments, getDogs } from "../../redux/actions/actions";
 import { useDispatch, useSelector } from "react-redux";
 import { validate } from '../../components/form/validateCreate';
 import { Link, useHistory } from 'react-router-dom';
@@ -80,7 +80,7 @@ export default function CreateForm() {
         maxLifeSpan: '',
         temperament: []
       });
-
+      dispatch(getDogs())
       history.push('/home')
     }
   };
@@ -141,7 +141,7 @@ export default function CreateForm() {
             </div>
 
             <div className='divForm'>
-              <input placeholder='Image' className='inputImage' type='text' name='image' onChange={handleInputChange} autoComplete="off" value={input.image} />
+              <input placeholder='Image url' className='inputImage' type='text' name='image' onChange={handleInputChange} autoComplete="off" value={input.image} />
             </div>
 
             <div className='tempWrap'>

@@ -127,7 +127,7 @@ export default function UpdateForm({ id, setUpdater }) {
             </div>
 
             <div className='upDivForm'>
-              <input placeholder='Image' className='inputImage' type='text' name='image' onChange={handleInputChange} autoComplete="off" value={input.image} />
+              <input placeholder='Image url' className='inputImage' type='text' name='image' onChange={handleInputChange} autoComplete="off" value={input.image} />
             </div>
 
             <div className='upTempWrap'>

@@ -65,11 +65,18 @@ function rootReducer(state = initialState, action) {
     if (action.type === FILTER_FROM) {
         const allDogs = state.auxDogs
         var filterFrom;
+        var aux;
         if (action.payload === 'API') {
-            filterFrom = allDogs.filter(e => !isNaN(e.id));
+            aux = allDogs.filter(e => !isNaN(e.id));
+            !aux.length ?
+            filterFrom = {msg:"There's no dog"}
+            : filterFrom = aux
         }
         if (action.payload === 'Created') {
-            filterFrom = allDogs.filter(e => isNaN(e.id));
+            aux = allDogs.filter(e => isNaN(e.id));
+            !aux.length ?
+            filterFrom = {msg:"There's no dog"}
+            : filterFrom = aux
         } else {
             filterFrom = allDogs
         }

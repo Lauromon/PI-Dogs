@@ -21,6 +21,7 @@ export default function DogDetail() {
   const handleDelete = async () => {
     dispatch(deleteDog(id))
       .then(res => alert(res.payload));
+    dispatch(getDogs())
     history.push("/home")
   }
 
