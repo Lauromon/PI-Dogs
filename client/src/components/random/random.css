@@ -1,0 +1,26 @@
+.rndBut{
+    font-family: 'Fira Sans', sans-serif;
+    font-weight: bold;
+    padding: 5px;
+    color: #ffff;
+    border: none;
+    transition: all ease-in-out .2s;
+    border-radius: 17px;
+    background: linear-gradient(145deg, #f8bcad, #d19e92);
+    box-shadow: 10px 10px 20px #d3a093,
+        -10px -10px 20px #fdc0b1;
+}
+
+.rndBut:hover {
+    border-radius: 17px;
+    background: linear-gradient(145deg, #d19e92, #f8bcad);
+    box-shadow: 10px 10px 20px #d3a093,
+        -10px -10px 20px #fdc0b1;;
+}
+
+.rndBut:active {
+    border-radius: 17px;
+    background: #E8B0A2;
+    box-shadow: inset 10px 10px 20px #d3a093,
+        inset -10px -10px 20px #fdc0b1;
+}

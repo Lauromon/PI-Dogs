@@ -1,0 +1,249 @@
+.containerCreator {
+    background: url('../../assets/mosaic.jpg');
+    background-position: center;
+    background-size: cover;
+    width: 100%;
+    height: 1200px;
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.creatorNav {
+    position: absolute;
+    background-color: #E8B0A2;
+    width: 100%;
+    height: 150px;
+    text-decoration: none;
+    display: flex;
+    flex-direction: row;
+    top: 0px;
+}
+
+.creatorLinks {
+    margin-top: 40px;
+}
+
+.creatorLinks li {
+    display: inline-block;
+    margin-left: 30px;
+}
+
+.creatorLinks a {
+    font-family: 'Fira Sans', sans-serif;
+    font-weight: bold;
+    padding: 5px 7px 7px 7px;
+    color: white;
+    text-decoration: none;
+    text-align: center;
+    transition: all ease-in-out .2s;
+    border-radius: 17px;
+    background: linear-gradient(145deg, #f8bcad, #d19e92);
+    box-shadow: 10px 10px 20px #d3a093,
+        -10px -10px 20px #fdc0b1;
+}
+
+.creatorLinks a:hover {
+    border-radius: 17px;
+    background: linear-gradient(145deg, #d19e92, #f8bcad);
+    box-shadow: 10px 10px 20px #d3a093,
+        -10px -10px 20px #fdc0b1;
+    ;
+}
+
+.creatorLinks a:active {
+    border-radius: 17px;
+    background: #E8B0A2;
+    box-shadow: inset 10px 10px 20px #d3a093,
+        inset -10px -10px 20px #fdc0b1;
+}
+
+.creatorMenu {
+    display: flex;
+    flex-direction: column;
+    margin: 50px auto 0;
+    margin-bottom: -16px;
+    width: 35%;
+    height: 750px;
+    padding-top: 5px;
+    align-items: center;
+   /*  justify-content: center; */
+    border-radius: 31px;
+    background: #e8b0a2eb;
+    box-shadow: 30px 30px 1px #97ade8, -30px -30px 1px #c5e8dc;
+}
+
+.creatorTitle {
+    color: #ffff;
+    margin: 40px 0px 20px 0px;
+    text-decoration: underline;
+    text-decoration-color: #97ADE8;
+}
+
+.divForm {
+    text-align: center;
+    margin: 20px 0px 20px 0px;
+}
+
+.divForm input {
+    max-width: 177px;
+    outline: none;
+    border: none;
+    padding: 5px 0px;
+    border-radius: 31px;
+    background: #e8b0a2;
+    box-shadow: inset 10px 10px 20px #d3a093,
+        inset -10px -10px 20px #fdc0b1;
+}
+
+.divForm input::-webkit-input-placeholder {
+    text-align: center;
+    color: #ffff;
+    text-shadow: 1px 1px 3px #000;
+}
+
+.danger {
+    color: red;
+}
+
+.divForm p {
+    position: absolute;
+    margin: 0px 0px 0px 0px;
+    font-size: smaller;
+}
+
+.tempWrap {
+    max-width: 177px;
+    position: relative;
+    margin: 20px 0px 20px 0px;
+}
+
+.tempWrap select {
+    color: #fff;
+    text-shadow: 1px 1px 3px #000;
+    text-align-last: center;
+    outline: none;
+    border: none;
+    padding: 5px 0px;
+    display: inline-block;
+    width: 100%;
+    border-radius: 31px;
+    background: #e8b0a2;
+    box-shadow: inset 10px 10px 20px #d3a093,
+        inset -10px -10px 20px #fdc0b1;
+}
+
+.tempWrap select::-webkit-scrollbar {
+    width: 0.5em;
+}
+
+.tempWrap select::-webkit-scrollbar-track {
+    background: #f1efef;
+}
+
+.tempWrap select::-webkit-scrollbar-thumb {
+    background: #97ADE8;
+}
+
+
+.inputWrap {
+    max-width: 177px;
+    position: relative;
+}
+
+.inputWrap input {
+    padding: 7px 0px;
+    color: #ffff;      
+    border: none;
+    display: inline-block;
+    width: 100%;
+    border-radius: 17px;
+    background: linear-gradient(145deg, #a2b9f8, #889cd1);
+    box-shadow: 10px 10px 16px #d3a093,
+    -10px -10px 16px #fdc0b1;
+}
+
+.inputWrap input:hover {
+    border-radius: 17px;
+    background: #97ADE8;
+    box-shadow: 10px 10px 16px #d3a093,
+    -10px -10px 16px #fdc0b1;
+}
+
+.inputWrap input:active {
+    border-radius: 17px;
+    background: #97ADE8;
+    box-shadow: inset 10px 10px 16px #889cd1,
+        inset -10px -10px 16px #a2b9f8;
+}
+
+.wrapperDual {
+    display: block;
+    width: 177px;
+}
+
+.allFields {
+    margin-bottom: 20px;
+}
+
+.selectedTemps {
+    color: #fff;
+    text-shadow: 1px 1px 3px #000;
+    bottom: 17.5%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    max-width: 250px;
+    position: absolute;
+    right: 38.5%;
+    border-radius: 31px;
+    background: #e8b0a2;
+    box-shadow: inset 10px 10px 16px #d3a093,
+        inset -10px -10px 16px #fdc0b1;
+}
+
+.selectedTemps .selTempItem {
+    display: inline-flex;
+    width: 50%;
+}
+
+.selectedTemps .deleteSelectedTemp {
+    border: none;
+    background: none;
+    color: #97ADE8;
+    text-shadow: 1px 1px 3px #000;
+    font-family: 'Fira Sans', sans-serif;
+    font-weight: 700;
+    position: relative;
+    bottom: 2px;
+}
+
+.creatorFooter {
+    margin-top: 73px;
+    width: 100%;
+    height: 80px;
+    background: #E8B0A2;
+    position: absolute;
+    bottom: 0px;
+}
+
+.creatorFooter .footCredits {
+    text-align: center;
+    position: relative;
+    top: 20px;
+    margin-left: -100px;
+}
+
+.creatorFooter li {
+    color: white;
+    display: inline-block;
+    margin-left: 30px;
+}
+
+.footCredits ul li ul li {
+    position: relative;
+    left: -55px;
+    bottom: 5px;
+    margin-right: -50px;
+}
