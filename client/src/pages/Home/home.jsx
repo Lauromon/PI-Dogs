@@ -69,7 +69,7 @@ const HomePage = () => {
   useEffect(() => {
     !dogs.length && dispatch(getDogs())
     dispatch(getTemperaments())
-  }, [dispatch]);
+  }, [dispatch, dogs.length]);
 
   console.log(dogs, "perris");
   return (
@@ -136,7 +136,7 @@ const HomePage = () => {
 
       <div className="containerDogs">
         {Array.isArray(dogs) ? (dogsPaginated.length ? dogsPaginated.map(dog => {
-          return (<div className="dogs">
+          return (<div key={dog.id} className="dogs">
             <DogCard
               id={dog.id}
               name={dog.name}

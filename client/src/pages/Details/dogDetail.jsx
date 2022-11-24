@@ -86,7 +86,7 @@ export default function DogDetail() {
               </div>
             </div>
             <div className='detHolder'>
-            <a onClick={() => handleClick(details)}><img src={Heart} alt="favs"/></a>
+            <img title="Add to Love Wall" onClick={() => handleClick(details)} src={Heart} alt="favs"/>
             </div>
       {(typeof details.id === 'string') ? details.id.includes("-") &&
         <div className="buttonsWrapper" >

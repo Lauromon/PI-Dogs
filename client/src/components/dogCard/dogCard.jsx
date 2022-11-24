@@ -10,7 +10,7 @@ export default function DogCard({ id, name, image, weight, temperament, handleCl
 
         <div className="wrapperImg">
       { typeof(handleClick) === 'function' && <div className='imgHolder'>
-        <a onClick={() => handleClick(dog)} href="#"> <img src={Heart} alt="favs" /></a>
+         <img title="Add to Love Wall" onClick={() => handleClick(dog)} src={Heart} alt="favs" />
       </div>}
           <img className="imgDog" src={image} alt={name} />
         </div>

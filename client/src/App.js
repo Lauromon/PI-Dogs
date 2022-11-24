@@ -1,5 +1,5 @@
 //import './App.css';
-import { BrowserRouter, Route, Redirect} from "react-router-dom";
+import { BrowserRouter, Route} from "react-router-dom";
 import LandingPage from './pages/Landing/landing';
 import HomePage from './pages/Home/home';
 import DogDetail from './pages/Details/dogDetail';
@@ -17,7 +17,7 @@ function App() {
         <Route path="/create" component={CreateForm} />
         <Route path="/favs" component={Favs} />
         <Route path="/about" component={About} />
-      {/*   <Route path="/*" render={() => <Redirect to="/" />} /> */}
+    
       </div>
     </BrowserRouter>
   );

@@ -1,7 +1,6 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { Link } from "react-router-dom";
-import { useSelector, useDispatch } from "react-redux";
-import { getDogs } from '../../redux/actions/actions';
+import { useSelector } from "react-redux";
 import './random.css';
 
 export default function Random() {
