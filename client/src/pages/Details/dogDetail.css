@@ -6,7 +6,7 @@
     min-height: 100%;
     position: absolute;
     z-index: -1;
-    }
+}
 
 
 .detNav {
@@ -149,12 +149,12 @@
 }
 
 
-.detHolder a {
-    position: relative;
+.detHolder {
+    position: absolute;
     height: 60px;
     width: 60px;
-    bottom: 60vh;
-    left: 39vw;
+    left: 102%;
+    bottom: 85%;
 
 }
 
@@ -165,11 +165,10 @@
 }
 
 .detHolder img {
-    position: absolute;
-    object-fit: contain;
-    width: 60px;
     height: 60px;
-    z-index: 1;
+    width: 60px;
+    /* bottom: 60vh; */
+    margin: 0 20px;
 }
 
 .detDescripcion p {
@@ -203,17 +202,17 @@
     margin: 5px 5px;
 }
 
-.detLoader{
+.detLoader {
     position: absolute;
     left: 24.4%;
-    bottom: 75px; 
+    bottom: 75px;
 }
 
-.detLoader img{
+.detLoader img {
     max-height: 701px;
 }
 
-.det404{
+.det404 {
     bottom: 50%;
     position: absolute;
     left: 38.9%;
@@ -312,4 +311,3 @@
     height: 100%;
     z-index: 2;
 }
-

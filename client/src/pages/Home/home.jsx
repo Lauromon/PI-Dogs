@@ -149,10 +149,10 @@ const HomePage = () => {
           </div>
           );
         }) : <div className="homeLoader"><img src={Loader} alt="Loading..." /></div>) : <div className="home404"><h2>{dogs.msg}</h2></div>}
+      </div>
         <div className="pagination">
           <Pagination nextpage={nextPage} prevPage={prevPage} />
         </div>
-      </div>
 
       <div className="footer">
         <div className="credits">

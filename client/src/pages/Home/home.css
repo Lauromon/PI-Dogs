@@ -14,7 +14,7 @@ body {
     background-size: contain;
     background-repeat: repeat;
     width: 100%;
-    height: auto;
+    height: 100%;
     position: absolute;
     z-index: -1;
 }
@@ -191,7 +191,8 @@ body {
 }
 
 .footer {
-    margin-top: 140px;
+    position: absolute;
+    bottom: 0%;
     width: 100%;
     height: 80px;
     background: #E8B0A2;
@@ -206,7 +207,7 @@ body {
 .footer .credits {
     text-align: center;
     position: relative;
-    top: 20px;
+    top: 10px;
     margin-left: -100px;
 }
 
@@ -227,12 +228,13 @@ body {
     display: flex;
     background: #E8B0A2;
     border: none;
-    bottom: 100px;
     border-radius: 20px;
     width: 200px;
     height: 50px;
     justify-content: center;
+    left: 44.8%;
     align-items: center;
+    margin-top: 60px;
 }
 
 body::-webkit-scrollbar {
